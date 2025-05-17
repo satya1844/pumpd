@@ -11,13 +11,13 @@ function App() {
   const [workout, setWorkout] = useState(null)
   
   function updateWorkout () {
-    if(muscles < 1){
+    if(muscles.length < 1){
       return
     }
     let newWorkout = generateWorkout({poison, muscles, goal});
-    console.log(newWorkout) // log the workout object t
+    console.log(newWorkout) // log the workout object
     setWorkout(newWorkout)  
-    window.location.href  = '#workout'
+    window.location.href = '#workout'
   }
 
   return (
@@ -25,15 +25,15 @@ function App() {
      from-slate-800 to-slate-900 text-white text-sm sm:text-base'>
       <Hero />
       <Generator 
-        muscles={muscles} 
-        setMuscles={setMuscles} 
-        poison={poison} 
-        setPoison={setPoison} 
-        goal={goal} 
-        setGoal={setGoal} 
-        updateWorkout={updateWorkout} 
+        muscles={muscles}
+        setMuscles={setMuscles}
+        poison={poison}
+        setPoison={setPoison}
+        goal={goal}
+        setGoal={setGoal}
+        updateWorkout={updateWorkout}
       />
-      {workout && <Workout workout={workout} /> }
+      <Workout workout={workout} />
     </main>
   )
 }
